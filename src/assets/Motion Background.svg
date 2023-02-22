@@ -1,0 +1,52 @@
+<svg width="1196" height="558" viewBox="0 0 1196 558" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_305_5681)" filter="url(#filter0_b_305_5681)">
+<rect width="1196" height="558" fill="url(#paint0_linear_305_5681)"/>
+<g filter="url(#filter1_f_305_5681)">
+<circle cx="101.5" cy="101.5" r="101.5" fill="#2B3589"/>
+</g>
+<g filter="url(#filter2_f_305_5681)">
+<ellipse cx="84.5" cy="559" rx="143.5" ry="195" fill="#9747FF"/>
+</g>
+<g filter="url(#filter3_f_305_5681)">
+<ellipse cx="456" cy="832.5" rx="211" ry="203.5" fill="#4A59E6"/>
+</g>
+<g filter="url(#filter4_f_305_5681)">
+<circle cx="438" cy="101" r="141" fill="#8426FF"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_b_305_5681" x="-10" y="-10" width="1216" height="578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="5"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_305_5681"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_305_5681" result="shape"/>
+</filter>
+<filter id="filter1_f_305_5681" x="-300" y="-300" width="803" height="803" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_305_5681"/>
+</filter>
+<filter id="filter2_f_305_5681" x="-359" y="64" width="887" height="990" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_305_5681"/>
+</filter>
+<filter id="filter3_f_305_5681" x="-55" y="329" width="1022" height="1007" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_305_5681"/>
+</filter>
+<filter id="filter4_f_305_5681" x="-3" y="-340" width="882" height="882" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_305_5681"/>
+</filter>
+<linearGradient id="paint0_linear_305_5681" x1="598" y1="0" x2="598" y2="528.984" gradientUnits="userSpaceOnUse">
+<stop/>
+<stop offset="1" stop-opacity="0.95"/>
+</linearGradient>
+<clipPath id="clip0_305_5681">
+<rect width="1196" height="558" fill="white"/>
+</clipPath>
+</defs>
+</svg>
