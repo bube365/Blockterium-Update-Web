@@ -13,10 +13,12 @@ import {
   Pricing,
   Footer,
 } from "../Components/home/index";
+import Navbar from "./navigation/Navbar";
 
 const HomePage = () => {
   return (
     <div>
+      <Navbar />
       <Hero />
       <Sponsors />
       <IntegrateWallet />

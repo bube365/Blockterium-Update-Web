@@ -22,22 +22,16 @@ export default function App(props) {
   return (
     <div className="font-assistant">
       <Routes>
-        <Route path="/" element={<Navbar />}>
+        <Route path="/">
           <Route index element={<HomePage />} />
+          <Route path="login" element={<Login />} />
+          <Route path="sign-up" element={<SignUp />} />
+          <Route path="terms-conditions" element={<TermsAndCondition />} />
+          <Route path="reset-password" element={<ResetPassword />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="contact-us" element={<ContactUs />} />
+          <Route path="about-us" element={<AboutUs />} />
         </Route>
-
-        <Route
-          path="2ef3fc2ef29f64fdd532ea6fa3a7d6e2.txt"
-          element={<Update />}
-        />
-        <Route path="login" element={<Login />} />
-        <Route path="sign-up" element={<SignUp />} />
-        <Route path="terms-conditions" element={<TermsAndCondition />} />
-        <Route path="reset-password" element={<ResetPassword />} />
-        <Route path="privacy-policy" element={<PrivacyPolicy />} />
-
-        <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/about-us" element={<AboutUs />} />
 
         <Route path="/dashboard" element={<SideBar />}>
           <Route index element={<DashboardHome />} />
@@ -73,4 +67,11 @@ export default function App(props) {
       <Footer /> */}
     </div>
   );
+}
+
+{
+  /* <Route
+          path="2ef3fc2ef29f64fdd532ea6fa3a7d6e2.txt"
+          element={<Update />}
+        /> */
 }

@@ -13,16 +13,16 @@ import {
 const Footer = () => {
   return (
     <section className="w-full footerBg  text-Lightgrey pt-[6rem] pb-12  px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem]">
-      <div className="flex flex-col sm:flex-row xl:gap-x-32 mb-[4rem] justify-center text-[16px] sm:text-[14px] lg:text-[16px] sm:gap-12">
+      {/* <div className="flex flex-col sm:flex-row xl:gap-x-32 mb-[4rem] justify-center text-[16px] sm:text-[14px] lg:text-[16px] sm:gap-12">
         <ul>
           <li className="font-semibold sm:text-[18px] text-[20px] mb-3">
             Company
           </li>
-          {/* <Link to={"./about-us"}>
+          <Link to={"./about-us"}>
             <li className="hover:cursor-pointer hover:text-Lightgrey">
               About Us
             </li>
-          </Link> */}
+          </Link>
           <a
             href="https://medium.com/@blockterium/introducing-blocketrium-f3930cec2db"
             target="_blank"
@@ -30,8 +30,8 @@ const Footer = () => {
           >
             <li>About Us</li>
           </a>
-          {/* <li>Blog</li> */}
-          {/* <li className="text-grey">Careers</li> */}
+          <li>Blog</li>
+          <li className="text-grey">Careers</li>
           <Link to={"./contact-us"}>
             <li className="hover:cursor-pointer hover:text-Lightgrey">
               Contact Us
@@ -45,9 +45,9 @@ const Footer = () => {
           </li>
           <Price />
 
-          {/* <li>API docs</li> */}
-          {/* <li>Documentations</li> */}
-          {/* <li>Github</li> */}
+          <li>API docs</li>
+          <li>Documentations</li>
+          <li>Github</li>
         </ul>
 
         <ul>
@@ -56,12 +56,12 @@ const Footer = () => {
           </li>
           <Product />
           <Sponsors />
-          {/* <li>Supported Blockchains</li> */}
+          <li>Supported Blockchains</li>
         </ul>
-      </div>
+      </div> */}
       <div className="text-center flex flex-col justify-center items-center">
         <img src={Logo} alt="" className="w-[10rem]" />
-        <p className="text-[11px] md:text-[10.5px]  sm:w-[50%] text-grey my-2">
+        <p className="text-[12px] md:text-[11.5px]  sm:w-[50%] text-grey my-2">
           This is a blockchain infrastructure company that allows businesses or
           enterprises to access secured blockchain node protocols to establish,
           run and scale their digital assets activities seamlessly.

@@ -509,7 +509,7 @@ const DashboardLists = ({ classnames }) => {
             <GuideCard
               image={Guide1}
               duration="2 min read"
-              text="How to get started with blockchain on blockterium"
+              text="How to get started with Blockterium"
             />
 
             {/* <GuideCard
