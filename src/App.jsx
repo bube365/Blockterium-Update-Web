@@ -12,9 +12,10 @@ import PricingIndex from "./Components/Explore/Pricing/PricingIndex";
 import SubscriptionIndex from "./Components/Explore/Subscription/SubscriptionIndex";
 import Docs from "./Components/Docs/Docs.jsx";
 
-import ResetPassword from "./Components/ResetPassword";
+import ForgetPassword from "./Components/ForgetPassword";
 import TermsAndCondition from "./routes/navigation/TermsAndCondition";
 import PrivacyPolicy from "./routes/navigation/PrivacyPolicy";
+import PasswordResetUpdate from "./Components/PasswordResetUpdate";
 import Update from "./Components/Update/Update";
 // ************************************************************************************
 
@@ -27,10 +28,14 @@ export default function App(props) {
           <Route path="login" element={<Login />} />
           <Route path="sign-up" element={<SignUp />} />
           <Route path="terms-conditions" element={<TermsAndCondition />} />
-          <Route path="reset-password" element={<ResetPassword />} />
+          <Route path="forget-password" element={<ForgetPassword />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="contact-us" element={<ContactUs />} />
           <Route path="about-us" element={<AboutUs />} />
+          <Route
+            path="password-reset/:encoded_pk/:token"
+            element={<PasswordResetUpdate />}
+          />
         </Route>
 
         <Route path="/dashboard" element={<SideBar />}>

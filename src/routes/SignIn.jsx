@@ -225,7 +225,7 @@ export default function SignIn(props) {
                 <input className="mr-2" type="checkbox" /> Stay Logged in
               </p>
               <p className="cursor-pointe text-[12px]">
-                <Link to="/reset-password">Forgot Password</Link>
+                <Link to="/forget-password">Forgot Password</Link>
               </p>
             </div>
             <button

@@ -6,8 +6,7 @@ import axios from "../api/axios";
 
 const RESET_URL = "/accounts/request/password/reset/";
 
-export default function ResetPassword(props) {
-  const Myemail = localStorage.getItem("email");
+export default function ForgetPassword(props) {
   // const navigate = useNavigate();
   // const location = useLocation();
   // const from =
@@ -41,7 +40,7 @@ export default function ResetPassword(props) {
   );
 
   const Success = () => {
-    setSuccessMsg(`An email has been sent to ${Myemail}`);
+    setSuccessMsg(`An email has been sent to ${email}`);
     setTimeout(() => {
       setSuccessMsg("");
     }, 8000);
@@ -111,7 +110,7 @@ export default function ResetPassword(props) {
             className="max-w-[400px] w-full mx-auto bg-darkestGrey p-8 px-8 rounded-lg"
           >
             <h2 className="text-[20px] mb-6 text-white font-poppins text-center">
-              PASSWORD RESET
+              Forget Password
             </h2>
 
             <p
