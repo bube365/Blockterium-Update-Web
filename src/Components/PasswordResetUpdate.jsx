@@ -7,7 +7,6 @@ import axios from "../api/axios";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const RESETPASSWORD_URL = "/accounts/password-reset/encoded_pk/token/";
 
 const PasswordResetUpdate = () => {
   const { setAuth } = useAuth();
@@ -17,8 +16,11 @@ const PasswordResetUpdate = () => {
   const { pathname } = location;
   const splitLocation = pathname.split("/");
   const [password, setPassword] = React.useState("");
+
+  const errorRef = React.useRef();
+
   const [confirmPassword, setConfirmPassword] = React.useState("");
-  const [buttonText, setButtonText] = React.useState("Proceed");
+  const [buttonText, setButtonText] = React.useState("Reset Password");
   const [showPassword, setShowPassword] = React.useState(false);
   const [validPassword, setValidPassword] = React.useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
@@ -38,6 +40,13 @@ const PasswordResetUpdate = () => {
     setValidPassword(PWD_REGEX.test(password));
   }, [password]);
 
+  React.useEffect(
+    function () {
+      setErrorMsg("");
+    },
+    [password]
+  );
+
   //   React.useEffect(
   //     function () {
   //       setErrorMsg("");
@@ -45,17 +54,19 @@ const PasswordResetUpdate = () => {
   //     [password]
   //   );
 
+  const token = splitLocation[3];
+  const encoded_pk = splitLocation[2];
+  const RESETPASSWORD_URL = `/accounts/password-reset/${encoded_pk}/${token}/`;
+
   async function handleSubmit(event) {
     event.preventDefault();
+    setButtonText("Resetting");
 
     const v2 = PWD_REGEX.test(password);
     if (!v2) {
       setErrorMsg("Invalid Entry");
       return;
     }
-
-    const token = splitLocation[3];
-    const encoded_pk = splitLocation[2];
 
     try {
       const response = await axios.post(
@@ -74,8 +85,14 @@ const PasswordResetUpdate = () => {
       setButtonText("Reset Password");
       // navigate(from, { replace: true });
     } catch (error) {
+      if (error.response?.status === 500) {
+        setErrorMsg("Oops! an error occurred!");
+        setButtonText("Reset Password");
+      } else {
+        setErrorMsg(error.response?.data["message"]);
+        setButtonText("Reset Password");
+      }
       errorRef.current.focus();
-      setButtonText("Proceed");
     }
   }
 
@@ -110,7 +127,7 @@ const PasswordResetUpdate = () => {
             <h2 className="text-[20px] mb-6 text-white font-poppins text-center">
               Reset your password
             </h2>
-            {/* <p
+            <p
               ref={errorRef}
               className={
                 errorMsg
@@ -121,6 +138,19 @@ const PasswordResetUpdate = () => {
               role="alert"
             >
               {errorMsg}
+            </p>
+
+            {/* <p
+              ref={successRef}
+              className={
+                successMsg
+                  ? "bg-white border text-green-400 border-green-400 px-4 py-3 mt-2 rounded relative font-semibold"
+                  : "offscreen"
+              }
+              aria-live="assertive"
+              role="alert"
+            >
+              {successMsg}
             </p> */}
 
             <div className="flex flex-col text-white py-2">

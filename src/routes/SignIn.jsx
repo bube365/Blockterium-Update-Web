@@ -90,9 +90,9 @@ export default function SignIn(props) {
       setButtonText("Proceed");
       navigate(from, { replace: true });
     } catch (error) {
-      // console.log(error);
       if (error.response?.status === 500) {
         setErrorMsg("Oops! an error occurred!");
+        setButtonText("Proceed");
       } else {
         setErrorMsg(error.response?.data["message"]);
         setButtonText("Proceed");

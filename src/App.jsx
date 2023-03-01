@@ -19,7 +19,7 @@ import PasswordResetUpdate from "./Components/PasswordResetUpdate";
 import Update from "./Components/Update/Update";
 // ************************************************************************************
 
-export default function App(props) {
+export default function App({ token, encoded_pk }) {
   return (
     <div className="font-assistant">
       <Routes>
@@ -33,7 +33,7 @@ export default function App(props) {
           <Route path="contact-us" element={<ContactUs />} />
           <Route path="about-us" element={<AboutUs />} />
           <Route
-            path="password-reset/:encoded_pk/:token"
+            path={`password-reset/:${encoded_pk}/:${token}`}
             element={<PasswordResetUpdate />}
           />
         </Route>
