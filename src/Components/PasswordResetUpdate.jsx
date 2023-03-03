@@ -1,6 +1,5 @@
 import React from "react";
 import useAuth from "../hooks/useAuth";
-
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Logo, Bg, iphone } from "../assets/index";
 import axios from "../api/axios";
