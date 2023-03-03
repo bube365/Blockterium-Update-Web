@@ -13,10 +13,12 @@ const PasswordResetUpdate = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;
+  const from = location.state?.from?.pathname || "/login";
   const splitLocation = pathname.split("/");
   const [password, setPassword] = React.useState("");
 
   const errorRef = React.useRef();
+  const successRef = React.useRef();
 
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [buttonText, setButtonText] = React.useState("Reset Password");
@@ -26,6 +28,7 @@ const PasswordResetUpdate = () => {
   const [passwordFocus, setPasswordFocus] = React.useState(false);
   const [confirmPasswordFocus, setConfirmPasswordFocus] = React.useState(false);
   const [errorMsg, setErrorMsg] = React.useState("");
+  const [successMsg, setSuccessMsg] = React.useState("");
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -46,6 +49,13 @@ const PasswordResetUpdate = () => {
     [password]
   );
 
+  const Success = () => {
+    setSuccessMsg(`Password Reset Successful`);
+    setTimeout(() => {
+      setSuccessMsg("");
+    }, 1000);
+  };
+
   //   React.useEffect(
   //     function () {
   //       setErrorMsg("");
@@ -53,9 +63,7 @@ const PasswordResetUpdate = () => {
   //     [password]
   //   );
 
-  const token = splitLocation[3];
-  const encoded_pk = splitLocation[2];
-  const RESETPASSWORD_URL = `/accounts/password-reset/${encoded_pk}/${token}/`;
+  // const RESETPASSWORD_URL = `/accounts/password-reset/${encoded_pk}/${token}/`;
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -67,9 +75,11 @@ const PasswordResetUpdate = () => {
       return;
     }
 
+    const token = splitLocation[3];
+    const encoded_pk = splitLocation[2];
     try {
       const response = await axios.post(
-        RESETPASSWORD_URL,
+        `/accounts/password-reset/${encoded_pk}/${token}/`,
         JSON.stringify({
           token: token,
           password: password,
@@ -81,11 +91,17 @@ const PasswordResetUpdate = () => {
         }
       );
 
+      const onSucess = response?.data?.message;
+      {
+        onSucess === "OK" ? Success() : "";
+      }
+
       setButtonText("Reset Password");
-      // navigate(from, { replace: true });
+      navigate(from, { replace: true });
     } catch (error) {
+      console.log(error);
       if (error.response?.status === 500) {
-        setErrorMsg("Oops! an error occurred!");
+        setErrorMsg("Token mismatch or password reset link expired");
         setButtonText("Reset Password");
       } else {
         setErrorMsg(error.response?.data["message"]);
@@ -139,7 +155,7 @@ const PasswordResetUpdate = () => {
               {errorMsg}
             </p>
 
-            {/* <p
+            <p
               ref={successRef}
               className={
                 successMsg
@@ -150,7 +166,7 @@ const PasswordResetUpdate = () => {
               role="alert"
             >
               {successMsg}
-            </p> */}
+            </p>
 
             <div className="flex flex-col text-white py-2">
               <label>New Password</label>
