@@ -25,9 +25,9 @@ const YearlyPlans = () => {
                   / year
                 </span>
               </h2>
-              <h5 className="text-white font-bold text-[12px]">
+              {/* <h5 className="text-white font-bold text-[12px]">
                 0% discount off
-              </h5>
+              </h5> */}
               {/* <h5 className="text-mainRed font-bold text-[12px]">
                 15% discount off
               </h5> */}
@@ -56,9 +56,9 @@ const YearlyPlans = () => {
                 240 USDT{" "}
                 <span className="font-normal text-[14px] ">/ year</span>
               </h2>
-              <h5 className="text-mainRed font-bold text-[12px]">
+              {/* <h5 className="text-mainRed font-bold text-[12px]">
                 10% discount off
-              </h5>
+              </h5> */}
             </div>
 
             <ul className="flex flex-col gap-3 mb-5">
@@ -82,9 +82,9 @@ const YearlyPlans = () => {
               <h2 className="font-bold my-1 text-[16px] xsm:text-[14px] md:text-[16px]">
                 720 USDT <span className="font-normal text-[14px]">/ year</span>
               </h2>
-              <h5 className="text-mainRed font-bold text-[12px]">
+              {/* <h5 className="text-mainRed font-bold text-[12px]">
                 20% discount off
-              </h5>
+              </h5> */}
             </div>
             <ul className="flex flex-col gap-3 mb-5">
               <li className="">5,000,000 API Calls</li>
@@ -112,9 +112,9 @@ const YearlyPlans = () => {
                 1,200 USDT{" "}
                 <span className="font-normal text-[14px]">/ year</span>
               </h2>
-              <h5 className="text-mainRed font-bold text-[12px]">
+              {/* <h5 className="text-mainRed font-bold text-[12px]">
                 30% discount off
-              </h5>
+              </h5> */}
             </div>
 
             <div className="pb-3">
@@ -144,9 +144,9 @@ const YearlyPlans = () => {
                 2,400 USDT{" "}
                 <span className="font-normal text-[14px]">/ year</span>
               </h2>
-              <h5 className="text-mainRed font-bold text-[12px]">
+              {/* <h5 className="text-mainRed font-bold text-[12px]">
                 30% discount off
-              </h5>
+              </h5> */}
             </div>
 
             <ul className="flex flex-col gap-3 mb-5">

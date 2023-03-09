@@ -214,9 +214,9 @@ const BasicYearlyPlan = () => {
           <h2 className="font-bold my-1  text-[13px]">
             720 USDT <span className="font-normal text-[12px]">/ year</span>
           </h2>
-          <h5 className="text-mainRed font-bold text-[12px]">
+          {/* <h5 className="text-mainRed font-bold text-[12px]">
             20% discount off
-          </h5>
+          </h5> */}
         </div>
         <ul className="flex flex-col gap-3 mb-5 text-[13px]">
           <li className="">5,000,000 API Calls</li>

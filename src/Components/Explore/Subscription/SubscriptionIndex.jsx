@@ -18,13 +18,18 @@ const SubscriptionIndex = () => {
   const [isLoading, setIsLoading] = useState(true);
   const apiToken = localStorage.getItem("accessToken");
   const SUBSCRIPTION_URL = "/pricing/billing/";
-  const [billingHistory, setBillingHistory] = useState([
+  const [billingHistory, setBillingHistory] = React.useState([
     {
-      date: "October",
-      type: "Enterprise Package",
-      refId: "ggttwreryy",
-      amountPaid: "400 USDT",
-      reciept: "hhhhhhhfftter",
+      amount: "",
+      api_calls: 0,
+      id: 1,
+      payment_date: "",
+      payment_due_date: "",
+      plan: "",
+      timestamp: "",
+      transaction_id: "",
+      updated: "",
+      user: 35,
     },
   ]);
 
@@ -39,7 +44,7 @@ const SubscriptionIndex = () => {
       });
 
       const premiumUser = response?.data?.data?.is_premium;
-      setIsLoading(false);
+      // setIsLoading(false);
       setIsPremium(premiumUser);
     } catch (error) {
       // console.log(error.response.statusText);
@@ -59,9 +64,11 @@ const SubscriptionIndex = () => {
         withCredentials: true,
       });
 
-      setBillingHistory(response.data);
+      const resp = response?.data;
+      setBillingHistory(resp);
+      setIsLoading(false);
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
   }
 
@@ -70,8 +77,8 @@ const SubscriptionIndex = () => {
   }, [isPremium]);
 
   useEffect(() => {
-    billings();
-  }, []);
+    (async () => billings())();
+  }, [isPremium]);
 
   if (isLoading) {
     return (
@@ -136,13 +143,15 @@ const SubscriptionIndex = () => {
                 {isPremium && (
                   <div className="bg-mainWhite  my-5 border border-greySeven rounded-md  py-2  px-4 text-[14px]">
                     <div className=" py-1">
-                      <h2 className="font-semibold text-[16px]">Premium</h2>
+                      <h2 className="font-semibold text-[16px]">
+                        Premium Account
+                      </h2>
                       <h2 className="font-bold my-3 text-[16px]">
                         {/* <span className="font-normal text-[14px]">/ month</span> */}
                       </h2>
                     </div>
 
-                    <div className="pb-3 text-greyTen">
+                    {/* <div className="pb-3 text-greyTen">
                       <ul className="flex flex-col gap-3  ">
                         <li className="">Unlimited API calls</li>
                         <li className="">500 rq/s</li>
@@ -150,7 +159,7 @@ const SubscriptionIndex = () => {
                         <li className="">API Testnets</li>
                         <li className="">Market Data</li>
                       </ul>
-                    </div>
+                    </div> */}
                   </div>
                 )}
 
@@ -161,30 +170,6 @@ const SubscriptionIndex = () => {
                   </div>
                 )}
               </>
-              {/* <div className="bg-mainWhite  my-5 border border-greySeven rounded-md py-2 px-4"> */}
-              {/* <h3 className="text-[16px] font-semibold text-mainBlack">
-                  API Calls
-                </h3> */}
-              {/* <div className="flex justify-between">
-                  <p className="text-[13px] text-greyTen font-medium">
-                    Total Request made
-                  </p>
-                  <select
-                    name=""
-                    id=""
-                    className="border border-greySeven text-[13px]"
-                  >
-                    <option value="This Month">This Month</option>
-                    <option value="This Month">Jan</option>
-                    <option value="This Month">Feb</option>
-                  </select>
-                </div> */}
-              {/* <h3 className="text-2xl text-mainBlack font-bold mt-6">34</h3> */}
-              {/* </div> */}
-
-              {/* <h2 className="text-mainRed border border-mainRed w-[50%] p-2 font-semibold rounded-md hover:cursor-pointer">
-                Cancel Plan
-              </h2> */}
             </div>
           </>
 
@@ -201,41 +186,80 @@ const SubscriptionIndex = () => {
                   Upgrade Plan
                 </Link>
               </div>
-              <table className="w-full text-left text-[13px] mt-5">
+
+              <div className="sm:hidden">
+                {billingHistory.map((element) => {
+                  return (
+                    <div className="border text-black border-greySeven my-3  p-2">
+                      <div>
+                        <h1 className="font-semibold">Payment Date</h1>
+                        <p className=" mb-2">{element.payment_date}</p>
+                      </div>
+                      <div>
+                        <h1 className="font-semibold">Plan</h1>
+                        <p className=" mb-2">{element.plan}</p>
+                      </div>
+                      <div>
+                        <h1 className="font-semibold">Transaction ID</h1>
+                        <p className="mb-2">{element.transaction_id}</p>
+                      </div>
+                      <div>
+                        <h1 className="font-semibold">Amount</h1>
+                        <p className=" mb-2">
+                          {element.amount} {isPremium ? "USDT" : ""}
+                        </p>
+                      </div>
+
+                      <div>
+                        <h1 className="font-semibold">Expiry Date</h1>
+                        <p className="mb-2">{element.payment_due_date}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <table className="w-full text-left text-[13px] mt-5 hidden sm:block">
                 <thead>
                   <th className="w-[20%] border border-greySeven py-2 pb-4 px-2">
-                    Date
+                    Payment Date
                   </th>
                   <th className="w-[20%] border border-greySeven py-2 pb-4 px-2">
                     Type
                   </th>
                   <th className="w-[20%] border border-greySeven py-2 pb-4 px-2">
-                    Reference ID
+                    Transaction ID
                   </th>
                   <th className="w-[20%] border border-greySeven py-2 pb-4 px-2">
                     Amount Paid
                   </th>
                   <th className="w-[20%] border border-greySeven py-2 pb-4 px-2">
-                    Reciept
+                    Expiry Date
                   </th>
                 </thead>
-                <tbody>
-                  <td className="w-[20%] border border-greySeven px-2 py-2">
-                    {billingHistory.date}
-                  </td>
-                  <td className="w-[20%] border border-greySeven px-2 py-2">
-                    {billingHistory.type}
-                  </td>
-                  <td className="w-[20%] border border-greySeven px-2 py-2">
-                    {billingHistory.refId}
-                  </td>
-                  <td className="w-[20%] border border-greySeven px-2 py-2">
-                    {billingHistory.amountPaid}
-                  </td>
-                  <td className="w-[20%] text-mainBlue font-semibold border border-greySeven px-2 py-2">
-                    {billingHistory.reciept}
-                  </td>
-                </tbody>
+
+                {billingHistory.map((element) => {
+                  return (
+                    <tbody>
+                      <td className="w-[20%] border text-black border-greySeven px-2 py-2">
+                        {element.payment_date}
+                      </td>
+
+                      <td className="w-[20%] border border-greySeven px-2 py-2">
+                        {element.plan}
+                      </td>
+                      <td className="w-[20%] border border-greySeven px-2 py-2">
+                        {element.transaction_id}
+                      </td>
+                      <td className="w-[20%] border border-greySeven px-2 py-2">
+                        {element.amount} USDT
+                      </td>
+                      <td className="w-[20%] border border-greySeven px-2 py-2">
+                        {element.payment_due_date}
+                      </td>
+                    </tbody>
+                  );
+                })}
               </table>
             </div>
           </>
