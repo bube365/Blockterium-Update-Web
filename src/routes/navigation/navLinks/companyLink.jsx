@@ -1,32 +1,32 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Resources } from "../MyLinks";
+import { Company } from "../MyLinks";
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
 } from "react-icons/md";
 import { HiOutlineArrowRight } from "react-icons/hi";
 
-const ResourceLink = () => {
+const CompanyLink = () => {
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
   return (
     <>
-      {Resources.map((Resource) => (
+      {Company.map((items) => (
         <div>
           <div className="px-3 text-left xsm:cursor-pointer group">
             <h1
               className=" flex items-center xsm:pr-0  group"
               onClick={() => {
-                heading !== Resource.name
-                  ? setHeading(Resource.name)
+                heading !== items.name
+                  ? setHeading(items.name)
                   : setHeading("");
                 setSubHeading("");
               }}
             >
-              {Resource.name}
+              {items.name}
               <span className="text-xl xsm:hidden inline">
-                {Resource.name ? (
+                {items.name ? (
                   <MdOutlineKeyboardArrowUp />
                 ) : (
                   <MdOutlineKeyboardArrowDown />
@@ -44,35 +44,47 @@ const ResourceLink = () => {
                     mt-1 bg-white rotate-45"
                 ></div> */}
                 <div className="flex flex-row w-[50rem] gap-6 justify-center">
-                  <div className="bg-darkestBlue w-[30%] rounded-xl p-3 group parent">
-                    <div className="flex justify-between items-center border-b-2 border-grey pb-2 child">
-                      <h2 className="font-semibold ">GET STARTED</h2>
-                      <span className="secondchild ">
-                        <HiOutlineArrowRight />
-                      </span>
+                  <Link
+                    to="/contact-us"
+                    className="bg-darkestBlue w-[30%] rounded-xl p-3 group parent"
+                  >
+                    <div>
+                      <div className="flex justify-between items-center border-b-2 border-grey pb-2 child">
+                        <h2 className="font-semibold ">CONTACT US</h2>
+                        <span className="secondchild ">
+                          <HiOutlineArrowRight />
+                        </span>
+                      </div>
+                      <p className="mt-4 mb-2">Build</p>
+                      <p className="text-Lightgrey">
+                        Our solution is a plug-and-in infrastructure built to
+                        save the stress of blockchain development from start to
+                        finish.
+                      </p>
                     </div>
-                    <p className="mt-4 mb-2">Start</p>
-                    <p className="text-Lightgrey">
-                      Create an account and start using our services by
-                      exploring the various features and options available to
-                      you.
-                    </p>
-                  </div>
-                  <div className="bg-darkestBlue w-[30%] rounded-xl p-3 group parent">
-                    <div className="flex justify-between items-center border-b-2 border-grey pb-2 child">
-                      <h2 className="font-semibold ">DEVELOP</h2>
-                      <span className="secondchild ">
-                        <HiOutlineArrowRight />
-                      </span>
+                  </Link>
+
+                  <Link
+                    to="/about-us"
+                    className="bg-darkestBlue w-[30%] rounded-xl p-3 group parent"
+                  >
+                    <div>
+                      <div className="flex justify-between items-center border-b-2 border-grey pb-2 child">
+                        <h2 className="font-semibold ">ABOUT US</h2>
+                        <span className="secondchild ">
+                          <HiOutlineArrowRight />
+                        </span>
+                      </div>
+                      <p className="mt-4 mb-2">Learn</p>
+                      <p className="text-Lightgrey">
+                        Need help navigating through our platform and use cases?
+                        please click learn more below to read up on the
+                        utilities.
+                      </p>
                     </div>
-                    <p className="mt-4 mb-2">Build</p>
-                    <p className="text-Lightgrey">
-                      Our solution is a plug-and-in infrastructure built to save
-                      the stress of blockchain development from start to finish.
-                    </p>
-                  </div>
-                  <div className="bg-darkestBlue w-[30%] rounded-xl p-3 group parent">
-                    <div className="flex justify-between items-center border-b-2 border-grey pb-2 child">
+                  </Link>
+                  {/* <div className="bg-darkestBlue w-[30%] rounded-xl p-3 group parent"> */}
+                  {/* <div className="flex justify-between items-center border-b-2 border-grey pb-2 child">
                       <h2 className="font-semibold ">HELP AND GUIDE</h2>
                       <span className="secondchild ">
                         <HiOutlineArrowRight />
@@ -83,7 +95,7 @@ const ResourceLink = () => {
                       Need help navigating through our platform and use cases?
                       please click learn more below to read up on the utilities.
                     </p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
@@ -91,11 +103,11 @@ const ResourceLink = () => {
           {/* Mobile menus */}
           <div
             className={`
-            ${heading === Resource.name ? "xsm:hidden" : "hidden"}
+            ${heading === items.name ? "xsm:hidden" : "hidden"}
           `}
           >
             {/* sublinks */}
-            {Resource.sublinks.map((slinks) => (
+            {items.sublinks.map((slinks) => (
               <div>
                 <div>
                   <h1
@@ -140,4 +152,4 @@ const ResourceLink = () => {
   );
 };
 
-export default ResourceLink;
+export default CompanyLink;

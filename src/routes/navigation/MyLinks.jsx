@@ -54,3 +54,32 @@ export const Resources = [
     ],
   },
 ];
+
+export const Company = [
+  {
+    name: "Company",
+    submenu: true,
+    sublinks: [
+      {
+        Head: "Contact Us",
+        sublink: [
+          {
+            name: "Resources",
+            title: "Start",
+            info: "Create an account and start using our services by exploring the various features and options available to you",
+          },
+        ],
+      },
+      {
+        Head: "About Us",
+        sublink: [
+          {
+            name: "Resources",
+            title: "Build",
+            info: "Our solution is a plug-and-in infrastructure built to save the stress of blockchain development from start to finish.",
+          },
+        ],
+      },
+    ],
+  },
+];

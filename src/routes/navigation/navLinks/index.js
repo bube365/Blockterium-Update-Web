@@ -3,3 +3,4 @@ export { default as Resources } from "./resourceLink.jsx";
 export { default as HowItWorks } from "./howItWorksLink.jsx";
 export { default as Price } from "./pricingLink.jsx";
 export { default as Sponsors } from "./supportedBlockChain.jsx";
+export { default as Company } from "./companyLink.jsx";

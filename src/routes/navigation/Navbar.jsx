@@ -10,6 +10,7 @@ import {
   Resources,
   HowItWorks,
   Price,
+  Company,
 } from "../navigation/navLinks/index";
 // import Products from "../../Components/home/Products";
 
@@ -22,7 +23,7 @@ const Navbar = () => {
       <nav className="bg-black w-full z-10 text-white fixed top-0 py-1 left-0 right-0 px-3 ss:px-6 sm:px-12 lg:px-[6rem] xl:px-[10rem]">
         <div className="flex items-center justify-between text-center text-[13px] lg:text-[16px]">
           <div className="z-50 py-2 xsm:w-auto w-full flex justify-between">
-            <Link to={"./"} onClick={closeMobileMenu}>
+            <Link to={"/"} onClick={closeMobileMenu}>
               <img
                 src={Logo}
                 alt=""
@@ -40,23 +41,24 @@ const Navbar = () => {
             <HowItWorks />
             <Resources />
             <Price />
+            <Company />
 
-            <Link to={"./contact-us"}>
+            {/* <Link to={"/contact-us"}>
               <li className="hover:cursor-pointer hover:text-Lightgrey">
-                Contact Us
+                Company
               </li>
-            </Link>
+            </Link> */}
           </ul>
           <div className="hidden xsm:flex  gap-2">
             <Link
-              to={"./login"}
+              to={"/login"}
               className="greyGradient py-2 md:py-1  xsm:w-[10rem]"
             >
               Login
             </Link>
 
             <Link
-              to={"./sign-up"}
+              to={"/sign-up"}
               className="BlueGradient flex gap-2 items-center justify-center py-2 md:py-1  xsm:w-[10rem]"
             >
               Start for free <HiOutlineArrowRight className="animatedIcon" />
@@ -106,7 +108,9 @@ const Navbar = () => {
                 </AnchorLink>
               </li>
               {/* <Price /> */}
-              <li>
+
+              <Company />
+              {/* <li>
                 <Link
                   to={"/contact-us"}
                   className="py-7 px-3 "
@@ -114,7 +118,7 @@ const Navbar = () => {
                 >
                   Contact Us
                 </Link>
-              </li>
+              </li> */}
               <Link to="/login" className="py-5">
                 <Button />
               </Link>
