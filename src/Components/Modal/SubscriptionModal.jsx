@@ -54,6 +54,7 @@ export default function SubscriptionModal({
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
+                  
                   <Dialog.Panel className="transform overflow-hidden bg-white p-6 text-center align-middle shadow-xl transition-all rounded-md">
                     <Dialog.Title
                       as="h3"
